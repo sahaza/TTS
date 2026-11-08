@@ -15,6 +15,7 @@ from spacy.lang.ja import Japanese
 from spacy.lang.zh import Chinese
 from tokenizers import Tokenizer
 
+from TTS.tts.layers.xtts.mg_num2words import TextNorm as mg_num2words
 from TTS.tts.layers.xtts.zh_num2words import TextNorm as zh_num2words
 
 
@@ -229,6 +230,14 @@ _abbreviations = {
             # Korean doesn't typically use abbreviations in the same way as Latin-based scripts.
         ]
     ],
+    "mg": [
+        (re.compile("\\b%s\\." % x[0], re.IGNORECASE), x[1])
+        for x in [
+            ("dr", "dokotera"),
+            ("pr", "profesora"),
+            ("st", "masina"),
+        ]
+    ],
 }
 
 
@@ -412,6 +421,19 @@ _symbols_multilingual = {
             ("°", " fok "),
         ]
     ],
+    "mg": [
+        # Malagasy
+        (re.compile(r"%s" % re.escape(x[0]), re.IGNORECASE), x[1])
+        for x in [
+            ("&", " sy "),
+            ("@", " amin'ny "),
+            ("%", " isan-jato "),
+            ("#", " laharana "),
+            ("$", " dolara "),
+            ("£", " paona "),
+            ("°", " degre "),
+        ]
+    ],
     "ko": [
         # Korean
         (re.compile(r"%s" % re.escape(x[0]), re.IGNORECASE), x[1])
@@ -450,6 +472,7 @@ _ordinal_re = {
     "tr": re.compile(r"([0-9]+)(\.|inci|nci|uncu|üncü|\.)"),
     "hu": re.compile(r"([0-9]+)(\.|adik|edik|odik|edik|ödik|ödike|ik)"),
     "ko": re.compile(r"([0-9]+)(번째|번|차|째)"),
+    "mg": re.compile(r"([0-9]+)(na|lahy)"),
 }
 _number_re = re.compile(r"[0-9]+")
 _currency_re = {
@@ -501,6 +524,7 @@ def _expand_currency(m, lang="en", currency="USD"):
         "tr": ", ",
         "hu": ", ",
         "ko": ", ",
+        "mg": " sy ",
     }
 
     if amount.is_integer():
@@ -522,6 +546,8 @@ def _expand_number(m, lang="en"):
 def expand_numbers_multilingual(text, lang="en"):
     if lang == "zh":
         text = zh_num2words()(text)
+    elif lang == "mg":
+        text = mg_num2words()(text)
     else:
         if lang in ["en", "ru"]:
             text = re.sub(_comma_number_re, _remove_commas, text)
@@ -611,6 +637,7 @@ class VoiceBpeTokenizer:
             "ja": 71,
             "hu": 224,
             "ko": 95,
+            "mg": 250,
         }
 
     @cached_property
@@ -628,7 +655,7 @@ class VoiceBpeTokenizer:
             )
 
     def preprocess_text(self, txt, lang):
-        if lang in {"ar", "cs", "de", "en", "es", "fr", "hu", "it", "nl", "pl", "pt", "ru", "tr", "zh", "ko"}:
+        if lang in {"ar", "cs", "de", "en", "es", "fr", "hu", "it", "mg", "nl", "pl", "pt", "ru", "tr", "zh", "ko"}:
             txt = multilingual_cleaners(txt, lang)
             if lang == "zh":
                 txt = chinese_transliterate(txt)
@@ -837,7 +864,22 @@ def test_symbols_multilingual():
         assert out == b, f"'{out}' vs '{b}'"
 
 
+def test_malagasy_cleaners():
+    test_cases = [
+        ("Misy 50 miaramila.", "misy dimampolo miaramila.", "mg"),
+        ("Izany no 2na mpianatra.", "izany no faharoa mpianatra.", "mg"),
+        ("Misy 12,5 segondra.", "misy roa amby folo point dimy segondra.", "mg"),
+        ("Misy $20 izany.", "misy roapolo dolara izany.", "mg"),
+        ("Dr. Rakoto dia marina 100% izao.", "dokotera rakoto dia marina zato isan-jato izao.", "mg"),
+        ("Ny mailakao dia ana&joao@gmail.com", "ny mailakao dia ana sy joao amin'ny gmail.com", "mg"),
+    ]
+    for a, b, lang in test_cases:
+        out = multilingual_cleaners(a, lang)
+        assert out == b, f"'{out}' vs '{b}'"
+
+
 if __name__ == "__main__":
     test_expand_numbers_multilingual()
     test_abbreviations_multilingual()
     test_symbols_multilingual()
+    test_malagasy_cleaners()

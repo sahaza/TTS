@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import List
+from typing import List, Optional
 
 from TTS.tts.configs.shared_configs import BaseTTSConfig
 from TTS.tts.models.xtts import XttsArgs, XttsAudioConfig
@@ -51,7 +51,12 @@ class XttsConfig(BaseTTSConfig):
             If gpt_cond_len == gpt_cond_chunk_len, no chunking. Defaults to `4`.
 
         max_ref_len (int):
-            Maximum number of seconds of audio to be used as conditioning for the decoder. Defaults to `10`.
+            Maximum number of seconds of audio to be used as conditioning for the decoder. Defaults to `15`
+            so that 6-15 seconds `speaker_wav` reference samples are fully supported.
+
+        max_new_tokens (int):
+            Maximum number of audio tokens the GPT decoder may generate for one text chunk. Caps the output
+            length and prevents runaway generations. If None, the model default is used. Defaults to `None`.
 
         sound_norm_refs (bool):
             Whether to normalize the conditioning audio. Defaults to `False`.
@@ -89,6 +94,7 @@ class XttsConfig(BaseTTSConfig):
             "ko",
             "ja",
             "hi",
+            "mg",
         ]
     )
 
@@ -99,9 +105,10 @@ class XttsConfig(BaseTTSConfig):
     top_k: int = 50
     top_p: float = 0.85
     num_gpt_outputs: int = 1
+    max_new_tokens: Optional[int] = None
 
     # cloning
     gpt_cond_len: int = 12
     gpt_cond_chunk_len: int = 4
-    max_ref_len: int = 10
+    max_ref_len: int = 15
     sound_norm_refs: bool = False

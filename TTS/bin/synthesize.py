@@ -246,6 +246,24 @@ def main():
         help="wav file(s) to condition a multi-speaker TTS model with a Speaker Encoder. You can give multiple file paths. The d_vectors is computed as their average.",
         default=None,
     )
+    parser.add_argument(
+        "--temperature",
+        type=float,
+        default=None,
+        help="XTTS only: sampling temperature. Lower = more stable/neutral intonation, higher = more expressive.",
+    )
+    parser.add_argument(
+        "--repetition_penalty",
+        type=float,
+        default=None,
+        help="XTTS only: penalty against repeating tokens/silences. Raise it (e.g. 5-10) if the output stutters or gets stuck.",
+    )
+    parser.add_argument(
+        "--max_new_tokens",
+        type=int,
+        default=None,
+        help="XTTS only: maximum number of audio tokens to generate (caps the output length).",
+    )
     parser.add_argument("--gst_style", help="Wav path file for GST style reference.", default=None)
     parser.add_argument(
         "--capacitron_style_wav", type=str, help="Wav path file for Capacitron prosody reference.", default=None
@@ -463,6 +481,14 @@ def main():
         if args.text:
             print(" > Text: {}".format(args.text))
 
+        # XTTS generation knobs (temperature / repetition_penalty / max_new_tokens)
+        xtts_kwargs = {}
+        if "xtts" in str(getattr(synthesizer.tts_model.config, "model", "")):
+            for key in ("temperature", "repetition_penalty", "max_new_tokens"):
+                value = getattr(args, key)
+                if value is not None:
+                    xtts_kwargs[key] = value
+
         # kick it
         if tts_path is not None:
             wav = synthesizer.tts(
@@ -474,6 +500,7 @@ def main():
                 style_wav=args.capacitron_style_wav,
                 style_text=args.capacitron_style_text,
                 reference_speaker_name=args.reference_speaker_idx,
+                **xtts_kwargs,
             )
         elif vc_path is not None:
             wav = synthesizer.voice_conversion(
@@ -482,7 +509,11 @@ def main():
             )
         elif model_dir is not None:
             wav = synthesizer.tts(
-                args.text, speaker_name=args.speaker_idx, language_name=args.language_idx, speaker_wav=args.speaker_wav
+                args.text,
+                speaker_name=args.speaker_idx,
+                language_name=args.language_idx,
+                speaker_wav=args.speaker_wav,
+                **xtts_kwargs,
             )
 
         # save the results

@@ -406,6 +406,8 @@ class Xtts(BaseTTS):
             "top_k": config.top_k,
             "top_p": config.top_p,
         }
+        if getattr(config, "max_new_tokens", None) is not None:
+            settings["max_new_tokens"] = config.max_new_tokens
         settings.update(kwargs)  # allow overriding of preset settings with kwargs
         if speaker_id is not None:
             gpt_cond_latent, speaker_embedding = self.speaker_manager.speakers[speaker_id].values()

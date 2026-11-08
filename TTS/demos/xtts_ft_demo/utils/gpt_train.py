@@ -75,6 +75,30 @@ def train_gpt(language, num_epochs, batch_size, grad_acumm, train_csv, eval_csv,
             [TOKENIZER_FILE_LINK, XTTS_CHECKPOINT_LINK, XTTS_CONFIG_LINK], CHECKPOINTS_OUT_PATH, progress_bar=True
         )
 
+    # ensure the fine-tuning language has a dedicated token in the tokenizer vocab (e.g. [mg])
+    import json
+
+    with open(TOKENIZER_FILE, "r", encoding="utf-8") as f:
+        vocab_data = json.load(f)
+    lang_token = f"[{language}]"
+    if lang_token not in vocab_data["model"]["vocab"]:
+        new_id = max(vocab_data["model"]["vocab"].values()) + 1
+        vocab_data["model"]["vocab"][lang_token] = new_id
+        vocab_data.setdefault("added_tokens", []).append(
+            {
+                "id": new_id,
+                "special": True,
+                "content": lang_token,
+                "single_word": False,
+                "lstrip": False,
+                "rstrip": False,
+                "normalized": False,
+            }
+        )
+        with open(TOKENIZER_FILE, "w", encoding="utf-8") as f:
+            json.dump(vocab_data, f, ensure_ascii=False, indent=4)
+        print(f" > Added language token {lang_token} (id={new_id}) to {TOKENIZER_FILE}")
+
     # init args and config
     model_args = GPTArgs(
         max_conditioning_length=132300,  # 6 secs

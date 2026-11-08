@@ -150,6 +150,21 @@ def portuguese_cleaners(text):
     return text
 
 
+def malagasy_cleaners(text):
+    """Pipeline for Malagasy (mg) text. Numbers are left to the phonemizer (espeak-ng supports mg)."""
+    text = lowercase(text)
+    text = re.sub("dr[.]", "dokotera", text, flags=re.IGNORECASE)
+    text = re.sub("pr[.]", "profesora", text, flags=re.IGNORECASE)
+    text = re.sub("st[.]", "masina", text, flags=re.IGNORECASE)
+    text = text.replace("&", " sy ")
+    text = text.replace("@", " amin'ny ")
+    text = text.replace("%", " isan-jato ")
+    text = text.replace("#", " laharana ")
+    text = remove_aux_symbols(text)
+    text = collapse_whitespace(text)
+    return text
+
+
 def chinese_mandarin_cleaners(text: str) -> str:
     """Basic pipeline for chinese"""
     text = replace_numbers_to_characters_in_text(text)
