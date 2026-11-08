@@ -1,6 +1,7 @@
 
 ## 🐸Coqui.ai News
-- 📣 ⓍTTSv2 is here with 16 languages and better performance across the board.
+- 📣 ⓍXTTS-v2 now supports **Malagasy (mg)** — 18 languages, with a fine-tuning recipe in [`recipes/xtts_mg`](recipes/xtts_mg).
+- 📣🥳TTSv2 is here with 16 languages and better performance across the board.
 - 📣 ⓍTTS fine-tuning code is out. Check the [example recipes](https://github.com/coqui-ai/TTS/tree/dev/recipes/ljspeech).
 - 📣 ⓍTTS can now stream with <200ms latency.
 - 📣 ⓍTTS, our production TTS model that can speak 13 languages, is released [Blog Post](https://coqui.ai/blog/tts/open_xtts), [Demo](https://huggingface.co/spaces/coqui/xtts), [Docs](https://tts.readthedocs.io/en/dev/models/xtts.html)
@@ -208,6 +209,8 @@ tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
 wav = tts.tts(text="Hello world!", speaker_wav="my/cloning/audio.wav", language="en")
 # Text to speech to a file
 tts.tts_to_file(text="Hello world!", speaker_wav="my/cloning/audio.wav", language="en", file_path="output.wav")
+# Malagasy (mg) voice cloning with a 6-15s reference sample
+tts.tts_to_file(text="Manaona struktura!", speaker_wav="my/cloning/audio_mg.wav", language="mg", file_path="output_mg.wav")
 ```
 
 #### Running a single speaker model

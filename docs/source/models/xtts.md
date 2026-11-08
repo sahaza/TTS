@@ -18,13 +18,14 @@ a few tricks to make it faster and support streaming inference.
 - Improved voice cloning.
 - Voices can be cloned with a single audio file or multiple audio files, without any effect on the runtime.
 - 2 new languages: Hungarian and Korean.
+- This fork adds Malagasy (mg) support, with a fine-tuning recipe in `recipes/xtts_mg`.
 - Across the board quality improvements.
 
 ### Code
 Current implementation only supports inference and GPT encoder training.
 
 ### Languages
-As of now, XTTS-v2 supports 16 languages: English (en), Spanish (es), French (fr), German (de), Italian (it), Portuguese (pt), Polish (pl), Turkish (tr), Russian (ru), Dutch (nl), Czech (cs), Arabic (ar), Chinese (zh-cn), Japanese (ja), Hungarian (hu) and Korean (ko).
+As of now, XTTS-v2 supports 18 languages: English (en), Spanish (es), French (fr), German (de), Italian (it), Portuguese (pt), Polish (pl), Turkish (tr), Russian (ru), Dutch (nl), Czech (cs), Arabic (ar), Chinese (zh-cn), Japanese (ja), Hungarian (hu), Korean (ko), Hindi (hi) and Malagasy (mg).
 
 Stay tuned as we continue to add support for more languages. If you have any language requests, please feel free to reach out.
 
