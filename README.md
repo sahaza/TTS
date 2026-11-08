@@ -6,12 +6,6 @@
 - Tools for training new models and fine-tuning existing models in any language.
 - Utilities for dataset analysis and curation.
 
-[![Discord](https://img.shields.io/discord/1037326658807533628?color=%239B59B6&label=chat%20on%20discord)](https://discord.gg/5eXr5seRrv)
-[![License](<https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg>)](https://opensource.org/licenses/MPL-2.0)
-[![PyPI version](https://badge.fury.io/py/Full-TTS.svg)](https://badge.fury.io/py/Full-TTS)
-[![Downloads](https://pepy.tech/badge/full-tts)](https://pepy.tech/project/full-tts)
-[![Docs](<https://readthedocs.org/projects/tts/badge/?version=latest&style=plastic>)](https://tts.readthedocs.io/en/latest/)
-
 ______________________________________________________________________
 
 ## News
