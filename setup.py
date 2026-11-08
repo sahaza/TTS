@@ -80,7 +80,7 @@ exts = [
 setup(
     name="TTS",
     version=version,
-    url="https://github.com/coqui-ai/TTS",
+    url="https://www.coqui.ai",
     author="Eren Gölge",
     author_email="egolge@coqui.ai",
     description="Deep learning for Text to Speech by Coqui.",
@@ -100,10 +100,7 @@ setup(
         ]
     },
     project_urls={
-        "Documentation": "https://github.com/coqui-ai/TTS/wiki",
-        "Tracker": "https://github.com/coqui-ai/TTS/issues",
-        "Repository": "https://github.com/coqui-ai/TTS",
-        "Discussions": "https://github.com/coqui-ai/TTS/discussions",
+        "Documentation": "https://tts.readthedocs.io/en/latest/",
     },
     cmdclass={
         "build_py": build_py,
