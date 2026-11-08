@@ -1,6 +1,6 @@
-# Coqui TTS
+# Full TTS
 
- **Coqui TTS** is a library for advanced Text-to-Speech generation.
+ **Full TTS** is a library for advanced Text-to-Speech generation.
 
  Pretrained models in +1100 languages.
  Tools for training new models and fine-tuning existing models in any language.
@@ -8,8 +8,8 @@
 
 [![Discord](https://img.shields.io/discord/1037326658807533628?color=%239B59B6&label=chat%20on%20discord)](https://discord.gg/5eXr5seRrv)
 [![License](<https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg>)](https://opensource.org/licenses/MPL-2.0)
-[![PyPI version](https://badge.fury.io/py/TTS.svg)](https://badge.fury.io/py/TTS)
-[![Downloads](https://pepy.tech/badge/tts)](https://pepy.tech/project/tts)
+[![PyPI version](https://badge.fury.io/py/Full-TTS.svg)](https://badge.fury.io/py/Full-TTS)
+[![Downloads](https://pepy.tech/badge/full-tts)](https://pepy.tech/project/full-tts)
 [![DOI](https://zenodo.org/badge/265612440.svg)](https://zenodo.org/badge/latestdoi/265612440)
 [![Docs](<https://readthedocs.org/projects/tts/badge/?version=latest&style=plastic>)](https://tts.readthedocs.io/en/latest/)
 
@@ -22,7 +22,7 @@ ______________________________________________________________________
 - XTTS can now stream with <200ms latency.
 - XTTS, our production TTS model that can speak 13 languages, is released ([blog post](https://coqui.ai/blog/tts/open_xtts), [demo](https://huggingface.co/spaces/coqui/xtts), [docs](https://tts.readthedocs.io/en/dev/models/xtts.html)).
 - Bark is now available for inference with unconstrained voice cloning. [Docs](https://tts.readthedocs.io/en/dev/models/bark.html)
-- You can use the [~1100 Fairseq MMS models](https://dl.fbaipublicfiles.com/mms/tts/all-tts-languages.html) with TTS.
+- You can use the [~1100 Fairseq MMS models](https://dl.fbaipublicfiles.com/mms/tts/all-tts-languages.html) with Full TTS.
 - TTS now supports Tortoise with faster inference. [Docs](https://tts.readthedocs.io/en/dev/models/tortoise.html)
 
 ## Where to ask questions
@@ -53,7 +53,7 @@ Please use our dedicated channels for questions and discussion. Help is much mor
     - Vocoder models (MelGAN, Multiband-MelGAN, GAN-TTS, ParallelWaveGAN, WaveGrad, WaveRNN).
 - Fast and efficient model training.
 - Detailed training logs on the terminal and TensorBoard.
-- Support for multi-speaker TTS.
+- Support for multi-speaker Full TTS.
 - Efficient, flexible, lightweight but feature complete `Trainer API`.
 - Released and ready-to-use models.
 - Tools to curate Text2Speech datasets.
@@ -111,12 +111,12 @@ Please use our dedicated channels for questions and discussion. Help is much mor
 You can also help us implement more models.
 
 ## Installation
-TTS is tested on Ubuntu 18.04 with **python >= 3.9, < 3.12**.
+Full TTS is tested on Ubuntu 18.04 with **python >= 3.9, < 3.12**.
 
-If you are only interested in [synthesizing speech](https://tts.readthedocs.io/en/latest/inference.html) with the released TTS models, installing from PyPI is the easiest option.
+If you are only interested in [synthesizing speech](https://tts.readthedocs.io/en/latest/inference.html) with the released Full TTS models, installing from PyPI is the easiest option.
 
 ```bash
-pip install TTS
+pip install Full-TTS
 ```
 
 If you plan to code or train models, get a local checkout of this repository and install it in editable mode:
@@ -135,7 +135,7 @@ $ make install
 On Windows, community installation instructions are available [on Stack Overflow](https://stackoverflow.com/questions/66726331/how-can-i-run-mozilla-tts-coqui-tts-training-with-cuda-on-a-windows-system).
 
 ## Docker Image
-You can run TTS without installing it by building the Docker image from the `Dockerfile` in this repository:
+You can run Full TTS without installing it by building the Docker image from the `Dockerfile` in this repository:
 
 ```bash
 docker build -t tts-cpu .
@@ -144,9 +144,9 @@ python3 TTS/server/server.py --list_models # list available models
 python3 TTS/server/server.py --model_name tts_models/en/vctk/vits # start a server
 ```
 
-The TTS server is then available at `http://[::1]:5002/`. More details about Docker images (GPU support, ...) are in the [documentation](https://tts.readthedocs.io/en/latest/docker_images.html).
+The Full TTS server is then available at `http://[::1]:5002/`. More details about Docker images (GPU support, ...) are in the [documentation](https://tts.readthedocs.io/en/latest/docker_images.html).
 
-## Synthesizing speech with TTS
+## Synthesizing speech with Full TTS
 
 ### Python API
 
@@ -159,13 +159,13 @@ from TTS.api import TTS
 # Get device
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-# List available TTS models
+# List available Full TTS models
 print(TTS().list_models())
 
-# Init TTS
+# Init Full TTS
 tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
 
-# Run TTS
+# Run Full TTS
 # Since this model is a multi-lingual voice cloning model, we must set the target speaker_wav and language
 wav = tts.tts(text="Hello world!", speaker_wav="my/cloning/audio.wav", language="en")
 # Text to speech to a file
@@ -177,10 +177,10 @@ tts.tts_to_file(text="Manaona struktura!", speaker_wav="my/cloning/audio_mg.wav"
 #### Running a single speaker model
 
 ```python
-# Init TTS with the target model name
+# Init Full TTS with the target model name
 tts = TTS(model_name="tts_models/de/thorsten/tacotron2-DDC", progress_bar=False).to(device)
 
-# Run TTS
+# Run Full TTS
 tts.tts_to_file(text="Ich bin eine Testnachricht.", file_path=OUTPUT_PATH)
 
 # Example voice cloning with YourTTS in English, French and Portuguese
@@ -200,7 +200,7 @@ tts.voice_conversion_to_file(source_wav="my/source.wav", target_wav="my/target.w
 ```
 
 #### Example voice cloning together with the voice conversion model
-This way, you can clone voices by using any model in TTS.
+This way, you can clone voices by using any model in Full TTS.
 
 ```python
 tts = TTS("tts_models/de/thorsten/tacotron2-DDC")
@@ -216,7 +216,7 @@ For Fairseq models, use the following name format: `tts_models/<lang-iso_code>/f
 You can find the language ISO codes [here](https://dl.fbaipublicfiles.com/mms/tts/all-tts-languages.html).
 
 ```python
-# TTS with on the fly voice conversion
+# Full TTS with on the fly voice conversion
 api = TTS("tts_models/deu/fairseq/vits")
 api.tts_with_vc_to_file(
     "Wie sage ich auf Italienisch, dass ich dich liebe?",
@@ -380,7 +380,7 @@ $ tts --out_path output/path/speech.wav --model_name "<language>/<dataset>/<mode
 ```
 
 ## License
-TTS is released under the [MPL-2.0 license](https://opensource.org/licenses/MPL-2.0). See [LICENSE.txt](LICENSE.txt).
+Full TTS is released under the [MPL-2.0 license](https://opensource.org/licenses/MPL-2.0). See [LICENSE.txt](LICENSE.txt).
 
 ## Citation
-If you use TTS in your research, please cite it using [CITATION.cff](CITATION.cff).
+If you use Full TTS in your research, please cite it using [CITATION.cff](CITATION.cff).

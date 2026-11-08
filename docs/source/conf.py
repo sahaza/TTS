@@ -19,9 +19,9 @@ sys.path.insert(0, os.path.abspath('../..'))
 autodoc_mock_imports = ["soundfile"]
 
 # -- Project information -----------------------------------------------------
-project = 'TTS'
-copyright = "2021 Coqui GmbH, 2020 TTS authors"
-author = 'Coqui GmbH'
+project = 'Full TTS'
+copyright = "2021 Full TTS, 2020 TTS authors"
+author = 'Full TTS Team'
 
 with open("../../TTS/VERSION", "r") as ver:
     version = ver.read().strip()

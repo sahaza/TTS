@@ -288,7 +288,7 @@ class Synthesizer(nn.Module):
 
         if not text and not reference_wav:
             raise ValueError(
-                "You need to define either `text` (for sythesis) or a `reference_wav` (for voice conversion) to use the Coqui TTS API."
+                "You need to define either `text` (for sythesis) or a `reference_wav` (for voice conversion) to use the Full TTS API."
             )
 
         if text:

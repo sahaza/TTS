@@ -3,7 +3,7 @@
         "multilingual": {
             "multi-dataset": {
                 "xtts_v2": {
-                    "description": "XTTS-v2.0.3 by Coqui with 18 languages (this fork adds Malagasy mg).",
+                    "description": "XTTS-v2.0.3 with 18 languages (Full TTS fork adds Malagasy mg).",
                     "hf_url": [
                         "https://coqui.gateway.scarf.sh/hf-coqui/XTTS-v2/main/model.pth",
                         "https://coqui.gateway.scarf.sh/hf-coqui/XTTS-v2/main/config.json",

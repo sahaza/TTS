@@ -9,7 +9,7 @@
 #               ,+++*.    . .*++,          ,++*.      .*+++*
 #              *+,   .,*++**.                  .**++**.   ,+*
 #             .+*                                          *+,
-#             *+.                   Coqui                  .+*
+#             *+.                 Full TTS                .+*
 #             *+*              +++   TTS  +++              *+*
 #             .+++*.            .          .             *+++.
 #              ,+* *+++*...                       ...*+++* *+,
@@ -78,12 +78,12 @@ exts = [
     )
 ]
 setup(
-    name="TTS",
+    name="Full-TTS",
     version=version,
     url="https://www.coqui.ai",
     author="Eren Gölge",
     author_email="egolge@coqui.ai",
-    description="Deep learning for Text to Speech by Coqui.",
+    description="Deep learning for Text to Speech by Full TTS.",
     long_description=README,
     long_description_content_type="text/markdown",
     license="MPL-2.0",
