@@ -1,4 +1,4 @@
-# 🐸💬 TTS LJspeech Recipes
+# TTS LJspeech Recipes
 
 For running the recipes
 
@@ -15,5 +15,5 @@ For running the recipes
     bash run.sh
     ```
 
-💡 Note that these runs are just templates to help you start training your first model. They are not optimized for the best
-result. Double-check the configurations and feel free to share your experiments to find better parameters together 💪.
+ Note that these runs are just templates to help you start training your first model. They are not optimized for the best
+result. Double-check the configurations and feel free to share your experiments to find better parameters together .

@@ -1,10 +1,10 @@
 # Coqui TTS
 
-🗣️ **Coqui TTS** is a library for advanced Text-to-Speech generation.
+ **Coqui TTS** is a library for advanced Text-to-Speech generation.
 
-🚀 Pretrained models in +1100 languages.
-🛠️ Tools for training new models and fine-tuning existing models in any language.
-🧹 Utilities for dataset analysis and curation.
+ Pretrained models in +1100 languages.
+ Tools for training new models and fine-tuning existing models in any language.
+ Utilities for dataset analysis and curation.
 
 [![Discord](https://img.shields.io/discord/1037326658807533628?color=%239B59B6&label=chat%20on%20discord)](https://discord.gg/5eXr5seRrv)
 [![License](<https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg>)](https://opensource.org/licenses/MPL-2.0)
@@ -15,38 +15,38 @@
 
 ______________________________________________________________________
 
-## 📣 News
-- 📣 🥳 **XTTS-v2 now supports Malagasy (mg)** — 18 languages in total, with a fine-tuning recipe in [`recipes/xtts_mg`](recipes/xtts_mg).
-- 📣 🥳 XTTSv2 is here with 16 languages and better performance across the board.
-- 📣 🥳 XTTS fine-tuning code is out. Check the [example recipes](recipes/ljspeech).
-- 📣 🥳 XTTS can now stream with <200ms latency.
-- 📣 🥳 XTTS, our production TTS model that can speak 13 languages, is released ([blog post](https://coqui.ai/blog/tts/open_xtts), [demo](https://huggingface.co/spaces/coqui/xtts), [docs](https://tts.readthedocs.io/en/dev/models/xtts.html)).
-- 📣 🐶 Bark is now available for inference with unconstrained voice cloning. [Docs](https://tts.readthedocs.io/en/dev/models/bark.html)
-- 📣 You can use the [~1100 Fairseq MMS models](https://dl.fbaipublicfiles.com/mms/tts/all-tts-languages.html) with 🗣️TTS.
-- 📣 🗣️TTS now supports 🐢Tortoise with faster inference. [Docs](https://tts.readthedocs.io/en/dev/models/tortoise.html)
+## News
+- **XTTS-v2 now supports Malagasy (mg)** — 18 languages in total, with a fine-tuning recipe in [`recipes/xtts_mg`](recipes/xtts_mg).
+- XTTSv2 is here with 16 languages and better performance across the board.
+- XTTS fine-tuning code is out. Check the [example recipes](recipes/ljspeech).
+- XTTS can now stream with <200ms latency.
+- XTTS, our production TTS model that can speak 13 languages, is released ([blog post](https://coqui.ai/blog/tts/open_xtts), [demo](https://huggingface.co/spaces/coqui/xtts), [docs](https://tts.readthedocs.io/en/dev/models/xtts.html)).
+- Bark is now available for inference with unconstrained voice cloning. [Docs](https://tts.readthedocs.io/en/dev/models/bark.html)
+- You can use the [~1100 Fairseq MMS models](https://dl.fbaipublicfiles.com/mms/tts/all-tts-languages.html) with TTS.
+- TTS now supports Tortoise with faster inference. [Docs](https://tts.readthedocs.io/en/dev/models/tortoise.html)
 
-## 💬 Where to ask questions
+## Where to ask questions
 Please use our dedicated channels for questions and discussion. Help is much more valuable if it's shared publicly so that more people can benefit from it.
 
-| Type                            | Platform                                  |
+| Type | Platform |
 | ------------------------------- | ----------------------------------------- |
-| 🚨 **Bug Reports**              | The issue tracker of this repository      |
-| 🎁 **Feature Requests & Ideas** | The issue tracker of this repository      |
-| 👩‍💻 **Usage Questions**          | Community discussions or [Discord]       |
-| 🧠 **General Discussion**       | [Discord]                                 |
+| **Bug Reports** | The issue tracker of this repository |
+| **Feature Requests & Ideas** | The issue tracker of this repository |
+| **Usage Questions** | Community discussions or [Discord] |
+| **General Discussion** | [Discord] |
 
 [discord]: https://discord.gg/5eXr5seRrv
 
-## 🔗 Links and Resources
-| Type                     | Link                                                            |
+## Links and Resources
+| Type | Link |
 | ------------------------ | --------------------------------------------------------------- |
-| 💼 **Documentation**     | [ReadTheDocs](https://tts.readthedocs.io/en/latest/)            |
-| 💾 **Installation**      | See [Installation](#installation) below                         |
-| 👩‍💻 **Contributing**      | [CONTRIBUTING.md](CONTRIBUTING.md)                              |
-| 🚀 **Released Models**   | `tts --list_models`                                             |
-| 📰 **Blog**              | [coqui.ai/blog](https://coqui.ai/blog/)                         |
+| **Documentation** | [ReadTheDocs](https://tts.readthedocs.io/en/latest/) |
+| **Installation** | See [Installation](#installation) below |
+| **Contributing** | [CONTRIBUTING.md](CONTRIBUTING.md) |
+| **Released Models** | `tts --list_models` |
+| **Blog** | [coqui.ai/blog](https://coqui.ai/blog/) |
 
-## 🧠 Features
+## Features
 - High-performance deep learning models for Text2Speech tasks.
     - Text2Spec models (Tacotron, Tacotron2, Glow-TTS, SpeedySpeech).
     - Speaker Encoder to compute speaker embeddings efficiently.
@@ -60,7 +60,7 @@ Please use our dedicated channels for questions and discussion. Help is much mor
 - Utilities to use and test your models.
 - Modular (but not too much) code base enabling easy implementation of new ideas.
 
-## 🧩 Model Implementations
+## Model Implementations
 ### Spectrogram models
 - Tacotron: [paper](https://arxiv.org/abs/1703.10135)
 - Tacotron2: [paper](https://arxiv.org/abs/1712.05884)
@@ -77,11 +77,11 @@ Please use our dedicated channels for questions and discussion. Help is much mor
 - Delightful TTS: [paper](https://arxiv.org/abs/2110.12612)
 
 ### End-to-End Models
-- 🥳 XTTS: [blog](https://coqui.ai/blog/tts/open_xtts)
+- XTTS: [blog](https://coqui.ai/blog/tts/open_xtts)
 - VITS: [paper](https://arxiv.org/pdf/2106.06103)
-- 🗣️ YourTTS: [paper](https://arxiv.org/abs/2112.02418)
-- 🐢 Tortoise (original implementation by neonbjb)
-- 🐶 Bark (original implementation by Suno)
+- YourTTS: [paper](https://arxiv.org/abs/2112.02418)
+- Tortoise (original implementation by neonbjb)
+- Bark (original implementation by Suno)
 
 ### Attention Methods
 - Guided Attention: [paper](https://arxiv.org/abs/1710.08969)
@@ -110,10 +110,10 @@ Please use our dedicated channels for questions and discussion. Help is much mor
 
 You can also help us implement more models.
 
-## 💾 Installation
-🗣️TTS is tested on Ubuntu 18.04 with **python >= 3.9, < 3.12**.
+## Installation
+TTS is tested on Ubuntu 18.04 with **python >= 3.9, < 3.12**.
 
-If you are only interested in [synthesizing speech](https://tts.readthedocs.io/en/latest/inference.html) with the released 🗣️TTS models, installing from PyPI is the easiest option.
+If you are only interested in [synthesizing speech](https://tts.readthedocs.io/en/latest/inference.html) with the released TTS models, installing from PyPI is the easiest option.
 
 ```bash
 pip install TTS
@@ -122,33 +122,33 @@ pip install TTS
 If you plan to code or train models, get a local checkout of this repository and install it in editable mode:
 
 ```bash
-pip install -e .[all,dev,notebooks]  # Select the relevant extras
+pip install -e .[all,dev,notebooks] # Select the relevant extras
 ```
 
 On Ubuntu (Debian) you can also use the Makefile:
 
 ```bash
-$ make system-deps  # intended to be used on Ubuntu (Debian). Let us know if you have a different OS.
+$ make system-deps # intended to be used on Ubuntu (Debian). Let us know if you have a different OS.
 $ make install
 ```
 
 On Windows, community installation instructions are available [on Stack Overflow](https://stackoverflow.com/questions/66726331/how-can-i-run-mozilla-tts-coqui-tts-training-with-cuda-on-a-windows-system).
 
-## 🐳 Docker Image
+## Docker Image
 You can run TTS without installing it by building the Docker image from the `Dockerfile` in this repository:
 
 ```bash
 docker build -t tts-cpu .
 docker run --rm -it -p 5002:5002 --entrypoint /bin/bash tts-cpu
-python3 TTS/server/server.py --list_models                      # list available models
-python3 TTS/server/server.py --model_name tts_models/en/vctk/vits  # start a server
+python3 TTS/server/server.py --list_models # list available models
+python3 TTS/server/server.py --model_name tts_models/en/vctk/vits # start a server
 ```
 
 The TTS server is then available at `http://[::1]:5002/`. More details about Docker images (GPU support, ...) are in the [documentation](https://tts.readthedocs.io/en/latest/docker_images.html).
 
-## 🔊 Synthesizing speech with 🗣️TTS
+## Synthesizing speech with TTS
 
-### 🐍 Python API
+### Python API
 
 #### Running a multi-speaker and multi-lingual model
 
@@ -159,14 +159,14 @@ from TTS.api import TTS
 # Get device
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-# List available 🗣️TTS models
+# List available TTS models
 print(TTS().list_models())
 
 # Init TTS
 tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
 
 # Run TTS
-# ❗ Since this model is a multi-lingual voice cloning model, we must set the target speaker_wav and language
+# Since this model is a multi-lingual voice cloning model, we must set the target speaker_wav and language
 wav = tts.tts(text="Hello world!", speaker_wav="my/cloning/audio.wav", language="en")
 # Text to speech to a file
 tts.tts_to_file(text="Hello world!", speaker_wav="my/cloning/audio.wav", language="en", file_path="output.wav")
@@ -200,7 +200,7 @@ tts.voice_conversion_to_file(source_wav="my/source.wav", target_wav="my/target.w
 ```
 
 #### Example voice cloning together with the voice conversion model
-This way, you can clone voices by using any model in 🗣️TTS.
+This way, you can clone voices by using any model in TTS.
 
 ```python
 tts = TTS("tts_models/de/thorsten/tacotron2-DDC")
@@ -211,7 +211,7 @@ tts.tts_with_vc_to_file(
 )
 ```
 
-#### Example text to speech using **Fairseq models in ~1100 languages** 🤿
+#### Example text to speech using **Fairseq models in ~1100 languages** 
 For Fairseq models, use the following name format: `tts_models/<lang-iso_code>/fairseq/vits`.
 You can find the language ISO codes [here](https://dl.fbaipublicfiles.com/mms/tts/all-tts-languages.html).
 
@@ -225,7 +225,7 @@ api.tts_with_vc_to_file(
 )
 ```
 
-### 🌍 XTTS-v2 languages
+### XTTS-v2 languages
 XTTS-v2 supports 18 languages: English (en), Spanish (es), French (fr), German (de), Italian (it), Portuguese (pt), Polish (pl), Turkish (tr), Russian (ru), Dutch (nl), Czech (cs), Arabic (ar), Chinese (zh-cn), Japanese (ja), Hungarian (hu), Korean (ko), Hindi (hi) and **Malagasy (mg)**.
 Check the supported languages at runtime with:
 
@@ -337,13 +337,13 @@ If you don't specify any models, then it uses LJSpeech based English model.
 - List the available speakers and choose a <speaker_id> among them:
 
   ```
-  $ tts --model_name "<language>/<dataset>/<model_name>"  --list_speaker_idxs
+  $ tts --model_name "<language>/<dataset>/<model_name>" --list_speaker_idxs
   ```
 
 - Run the multi-speaker TTS model with the target speaker ID:
 
   ```
-  $ tts --text "Text for TTS." --out_path output/path/speech.wav --model_name "<language>/<dataset>/<model_name>"  --speaker_idx <speaker_id>
+  $ tts --text "Text for TTS." --out_path output/path/speech.wav --model_name "<language>/<dataset>/<model_name>" --speaker_idx <speaker_id>
   ```
 
 - Run your own multi-speaker TTS model:
@@ -360,27 +360,27 @@ $ tts --out_path output/path/speech.wav --model_name "<language>/<dataset>/<mode
 
 <!-- end-tts-readme -->
 
-## 📁 Directory Structure
+## Directory Structure
 ```
-|- notebooks/       (Jupyter Notebooks for model evaluation, parameter selection and data analysis.)
-|- recipes/         (Training recipes, including recipes/xtts_mg for Malagasy XTTS-v2 fine-tuning.)
-|- scripts/         (Dataset preparation and tokenizer utilities, e.g. scripts/prepare_mg_dataset.py.)
+|- notebooks/ (Jupyter Notebooks for model evaluation, parameter selection and data analysis.)
+|- recipes/ (Training recipes, including recipes/xtts_mg for Malagasy XTTS-v2 fine-tuning.)
+|- scripts/ (Dataset preparation and tokenizer utilities, e.g. scripts/prepare_mg_dataset.py.)
 |- TTS
-    |- bin/             (folder for all the executables.)
-      |- train*.py                  (train your target model.)
+    |- bin/ (folder for all the executables.)
+      |- train*.py (train your target model.)
       |- ...
-    |- tts/             (text to speech models)
-        |- layers/          (model layer definitions)
-        |- models/          (model definitions)
-        |- utils/           (model specific utilities.)
-    |- encoder/         (Speaker Encoder models.)
+    |- tts/ (text to speech models)
+        |- layers/ (model layer definitions)
+        |- models/ (model definitions)
+        |- utils/ (model specific utilities.)
+    |- encoder/ (Speaker Encoder models.)
         |- (same)
-    |- vocoder/         (Vocoder models.)
+    |- vocoder/ (Vocoder models.)
         |- (same)
 ```
 
-## 📜 License
-🗣️TTS is released under the [MPL-2.0 license](https://opensource.org/licenses/MPL-2.0). See [LICENSE.txt](LICENSE.txt).
+## License
+TTS is released under the [MPL-2.0 license](https://opensource.org/licenses/MPL-2.0). See [LICENSE.txt](LICENSE.txt).
 
-## 📖 Citation
-If you use 🗣️TTS in your research, please cite it using [CITATION.cff](CITATION.cff).
+## Citation
+If you use TTS in your research, please cite it using [CITATION.cff](CITATION.cff).

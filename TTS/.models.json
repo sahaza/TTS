@@ -42,7 +42,7 @@
                     "contact": "egolge@coqui.ai"
                 },
                 "bark": {
-                    "description": "🐶 Bark TTS model released by suno-ai. You can find the original implementation in ",
+                    "description": " Bark TTS model released by suno-ai. You can find the original implementation in ",
                     "hf_url": [
                         "https://coqui.gateway.scarf.sh/hf/bark/coarse_2.pt",
                         "https://coqui.gateway.scarf.sh/hf/bark/fine_2.pt",

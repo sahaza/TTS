@@ -1,4 +1,4 @@
-# 🐸💬 TTS Training Recipes
+# TTS Training Recipes
 
 TTS recipes intended to host scripts running all the necessary steps to train a TTS model on a particular dataset.
 
@@ -19,4 +19,4 @@ python TTS/bin/resample.py --input_dir recipes/vctk/VCTK/wav48_silence_trimmed -
 
 If you train a new model using TTS, feel free to share your training to expand the list of recipes.
 
-You can also open a new discussion and share your progress with the 🐸 community.
+You can also open a new discussion and share your progress with the community.

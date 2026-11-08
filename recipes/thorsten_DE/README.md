@@ -1,4 +1,4 @@
-# 🐸💬 TTS Thorsten Recipes
+# TTS Thorsten Recipes
 
 For running the recipes you need the [Thorsten-Voice](https://github.com/thorstenMueller/Thorsten-Voice) dataset.
 
@@ -11,5 +11,5 @@ Then, go to your desired model folder and run the training.
     CUDA_VISIBLE_DEVICES="0" python train_modelX.py
     ```
 
-💡 Note that these runs are just templates to help you start training your first model. They are not optimized for the best
-result. Double-check the configurations and feel free to share your experiments to find better parameters together 💪.
+ Note that these runs are just templates to help you start training your first model. They are not optimized for the best
+result. Double-check the configurations and feel free to share your experiments to find better parameters together .
